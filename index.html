@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - User</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Links -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Sixtyfour+Convergence&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&family=Sixtyfour+Convergence&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&family=Nabla&family=Sixtyfour+Convergence&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Cormorant:ital,wght@0,300..700;1,300..700&family=Nabla&family=Sixtyfour+Convergence&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+    #notification-panel {
+      display: none;
+    }
+
+    /* Pop-up background */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup.hidden {
+  display: none;
+}
+
+.popup-content {
+  background-color: white;
+  padding: 20px;
+  position: relative;
+  max-width: 80%;
+  max-height: 80%;
+  overflow: hidden;
+}
+
+.popup-image {
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: transparent;
+  border: none;
+  font-size: 24px;
+  color: black;
+  cursor: pointer;
+}
+
+  </style>
+</head>
+<body class="bg-white">
+  <div class="flex h-screen">
+    <!-- Sidebar -->
+ <aside class="w-64 text-black flex flex-col  min-h-screen ">
+  <div class="p-6 text-center">
+    <img src="/img/LOGO ULBI - WIDE DARK (1).png" alt="Placeholder Image" class="mx-auto">
+</div>
+
+    <nav class="mt-6 space-y-4 flex-grow">
+        <a href="#about" class="flex items-center px-6 py-3 font-semibold">
+            <span class="material-icons text-black mr-3">info</span>
+            <span class="font-semibold text-black">About</span>
+        </a>
+        
+        <a href="#skill" class="flex items-center px-6 py-3 font-semibold">
+            <span class="material-icons text-black mr-3">build</span>
+            <span class="font-semibold text-black">Skill</span>
+        </a>
+        
+        <a href="#website" class="flex items-center px-6 py-3 font-semibold">
+            <span class="material-icons text-black mr-3">public</span>
+            <span class="font-semibold text-black">Our Website</span>
+        </a>
+        
+        <a href="#soft" class="flex items-center px-6 py-3 font-semibold">
+            <span class="material-icons text-black mr-3">psychology</span>
+            <span class="font-semibold text-black">SoftSkill</span>
+        </a>
+    </nav>
+</aside>
+
+
+
+      
+
+    <!-- Main Content -->
+    <main class="flex-1 p-6">
+      <!-- Top Bar -->
+      <div class="flex justify-between items-center mb-6">
+        <!-- Profile Info -->
+        <div class="flex items-center space-x-4">
+          <div class="relative">
+            <iframe src="https://giphy.com/embed/bGgsc5mWoryfgKBx1u" width="64" height="64" style="border-radius:50%; border: 2px solid #1E40AF;" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+
+            <!-- <div id="notification-indicator" class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+              !
+            </div> -->
+          </div>
+          <div>
+            <h2 class="text-xl font-semibold">Muhammad Qinthar</h2>
+            <p class="text-sm text-gray-600">+62 812 3456 7890</p>
+            <p class="text-sm text-gray-600">qintharalmaliki@gmail.com</p>
+          </div>
+        </div>
+        <!-- Actions -->
+        <div class="flex items-center space-x-4">
+         
+          <button id="toggle-notifications" class="bg-black-200 text-black px-4 py-2 rounded hover:bg-gray-300">
+            <span class="material-icons text-black">volunteer_activism</span>
+            <p>Donate</p>
+        </button>
+        
+        <!-- Pop-up -->
+        <div id="popup" class="popup hidden">
+            <div class="popup-content">
+                <button id="close-popup" class="close-btn">X</button>
+                <img src="https://via.placeholder.com/300" alt="Image" class="popup-image">
+            </div>
+        </div>
+        
+        
+              
+        </div>
+      </div>
+
+<!--     
+   <div id="notification-panel" class="flex justify-center items-center min-h-screen">
+  <div class="bg-white p-8 rounded-lg shadow-lg w-96">
+
+    <div class="flex justify-center mb-6">
+      <img 
+        src="https://via.placeholder.com/150" 
+        alt="QRIS Image" 
+        class="w-32 h-32 rounded-md shadow-md">
+    </div>
+
+ 
+    <form action="#" method="POST">
+ 
+      <div class="mb-4">
+        <label for="name" class="block text-sm font-semibold mb-2">Nama</label>
+        <input 
+          type="text" 
+          id="name" 
+          name="name" 
+          class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" 
+          required>
+      </div>
+
+
+      <div class="mb-4">
+        <label for="message" class="block text-sm font-semibold mb-2">Pesan</label>
+        <textarea 
+          id="message" 
+          name="message" 
+          rows="4" 
+          class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" 
+          required></textarea>
+      </div>
+
+
+      <div class="flex justify-center">
+        <button 
+          type="submit" 
+          class="bg-blue-500 text-white py-2 px-6 rounded-md hover:bg-blue-600 transition duration-200">
+          Donasi
+        </button>
+      </div>
+    </form> -->
+
+ 
+    <!-- <div class="text-center mt-6">
+      <h3 class="text-lg font-semibold mb-2">Mari Berdonasi</h3>
+      <p class="text-sm text-gray-600">Berapapun yang Anda donasikan akan sangat membantu untuk menjalankan website ini dan proyek-proyek lainnya.</p>
+    </div>
+  </div>
+</div> -->
+
+      
+
+      
+<!-- Main Content Placeholder -->
+<!-- <div class="bg-white p-6 rounded shadow mb-6">
+  <h3 class="text-xl font-semibold">Selamat Datang, Semuanya yang ada di dunia ini</h3>
+  <p class="mt-2 text-gray-600">Gunakan sidebar untuk menavigasi tampilan.</p>
+</div> -->
+
+<!-- about us -->
+<div id="about" class="bg-white text-black py-16">
+    <div class="container mx-auto px-6 lg:px-20">
+        <!-- Header Section -->
+        <div class="text-center mb-12">
+          
+            <p class="mt-4 text-lg opacity-90">Get to know more about our story and vision for the future.</p>
+        </div>
+
+        <!-- Content Section -->
+        <div class="flex flex-col md:flex-row items-center md:items-start gap-8">
+            <!-- Foto Section -->
+            <div class="relative max-w-xs transform hover:scale-105 transition duration-300">
+                <img src="/img/qinthar.jpg" alt="About Us" class="rounded-lg shadow-2xl w-50">
+
+                <div class="absolute inset-0 flex items-end justify-center">
+                    <div class="bg-black bg-opacity-70 text-white text-center py-3 px-5 rounded-b-lg">
+                        <p class="text-sm font-light italic">"Inspiring moments, one story at a time."</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Teks Section -->
+            <div class="flex-1 space-y-6">
+                <h2 class="text-3xl font-semibold">Who Am I?</h2>
+                <style>
+                    .animated-text {
+                      animation: fadeIn 2s ease-in-out;
+                    }
+                  
+                    @keyframes fadeIn {
+                      0% {
+                        opacity: 0;
+                        transform: translateY(20px);
+                      }
+                      100% {
+                        opacity: 1;
+                        transform: translateY(0);
+                      }
+                    }
+                  </style>
+                  
+                  <p class="text-base leading-relaxed animated-text">
+                    Hai, nama saya Muhammad Qinthar Sabilla Almaliki. Saya berkuliah di ULBI dan mengambil jurusan Teknik Informatika. Saya lahir di Garut pada tanggal 25 Januari 2004.
+                  </p>
+                  
+                  <p class="text-base leading-relaxed animated-text">
+                    Saya memiliki ketertarikan besar dalam dunia IT dan bercita-cita menjadi Front-End Developer yang handal. Saya menikmati proses menciptakan desain interaktif, dan saya memiliki kemampuan dalam membuat website serta aplikasi mobile.
+                  </p>
+                  
+
+                <!-- Highlighted Info -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6">
+                    <div class="bg-white text-gray-800 p-6 rounded-lg shadow-md">
+                        <h4 class="text-lg font-bold">Birthday</h4>
+                        <p class="mt-2 text-sm">25 Januari 2004</p>
+                    </div>
+                    <!-- <div class="bg-white text-gray-800 p-6 rounded-lg shadow-md">
+                        <h4 class="text-lg font-bold">Price</h4>
+                        <div class="flex items-center mt-2 text-sm">
+                          <span class="material-icons text-green-500">attach_money</span>
+                          <p class="ml-2 ">Rp.10,000/Week</p>
+                        </div>
+                      </div> -->
+                      
+                    <div class="bg-white text-gray-800 p-6 rounded-lg shadow-md">
+                        <h4 class="text-lg font-bold">Passion</h4>
+                        <p class="mt-2 text-sm">Front-End Development</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- my skill -->
+<div id="skill" class="container mx-auto p-6">
+    <h2 class="text-2xl font-bold text-center mb-8">My Skills</h2>
+  
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-8">
+  <!-- Skill 1 -->
+<!-- Skill 1 -->
+<div class="flex flex-col items-center bg-white p-6 shadow-md">
+    <div class="w-32 h-32 mb-4 flex items-center justify-center text-sm font-mono">
+      <code style="color: blue;">body { <span style='color: red;'>margin</span>: <span style='color: green;'>0</span>; }</code>
+    </div>
+    <div class="w-full h-8 bg-gray-300 border-4 mb-4">
+      <div style="width: 80%;" class="w-full h-full text-center text-xs text-white bg-green-500">
+      </div>
+    </div>
+    <p class="text-center font-semibold">CSS</p>
+  </div>
+  
+  <!-- Skill 2 -->
+  <div class="flex flex-col items-center bg-white p-6 shadow-md">
+    <div class="w-32 h-32 mb-4 flex items-center justify-center text-sm font-mono">
+      <code style="color: purple;">Console.WriteLine(<span style='color: orange;'>"Hello World"</span>);</code>
+    </div>
+    <div class="w-full h-8 bg-gray-300 border-4 mb-4">
+      <div style="width: 60%;" class="w-full h-full text-center text-xs text-white bg-green-500">
+      </div>
+    </div>
+    <p class="text-center font-semibold">C#</p>
+  </div>
+  
+  <!-- Skill 3 -->
+  <div class="flex flex-col items-center bg-white p-6 shadow-md">
+    <div class="w-32 h-32 mb-4 flex items-center justify-center text-sm font-mono">
+      <code style="color: brown;">&lt;<span style='color: blue;'>div</span>&gt;<span style='color: green;'>Hello HTML</span>&lt;/<span style='color: blue;'>div</span>&gt;</code>
+    </div>
+    <div class="w-full h-8 bg-gray-300 border-4 mb-4">
+      <div style="width: 90%;" class="w-full h-full text-center text-xs text-white bg-green-500">
+      </div>
+    </div>
+    <p class="text-center font-semibold">HTML</p>
+  </div>
+  
+  <!-- Skill 4 -->
+  <div class="flex flex-col items-center bg-white p-6 shadow-md">
+    <div class="w-32 h-32 mb-4 flex items-center justify-center text-sm font-mono">
+      <code style="color: green;">console.<span style='color: blue;'>log</span>(<span style='color: orange;'>"Hello JS"</span>);</code>
+    </div>
+    <div class="w-full h-8 bg-gray-300 border-4 mb-4">
+      <div style="width: 75%;" class="w-full h-full text-center text-xs text-white bg-green-500">
+      </div>
+    </div>
+    <p class="text-center font-semibold">JavaScript</p>
+  </div>
+  </div>
+  
+  
+  
+
+<!-- Page Section -->
+<div id="website" class="flex flex-col justify-center items-center text-center min-h-screen  -mt-32"> ">
+    <div>
+      <h1 class="text-2xl font-bold text-black mb-4">Our Website</h1>
+      <p class="text-lg text-black mb-8">Berikut adalah beberapa tampilan website yang sedang dalam tahap pengembangan</p>
+  
+      <!-- Cards Section -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+        <!-- Card 1 -->
+        <div class="bg-white p-8 rounded shadow hover:shadow-lg transition duration-300">
+            <h3 class="text-3xl font-semibold text-gray-800 mb-6"></h3>
+            <iframe src="https://id.biz.id/" class="w-full h-48 border-none rounded" title="Website 1"></iframe>
+            <a href="https://id.biz.id/" class="text-orange-500 underline text-xl block mt-4">Visit Website</a>
+        </div>
+        
+        <!-- Card 2 -->
+        <div class="bg-white p-8 rounded shadow hover:shadow-lg transition duration-300">
+            <h3 class="text-3xl font-semibold text-gray-800 mb-6"></h3>
+            <iframe src="https://serlip06.github.io/fe_ATS_serli/template/index.html" class="w-full h-48 border-none rounded" title="Website 2"></iframe>
+            <a href="https://serlip06.github.io/fe_ATS_serli/template/index.html" class="text-orange-500 underline text-xl block mt-4">Visit Website</a>
+        </div>
+        
+      
+      </div>
+    </div>
+</div>
+
+<!-- softskill section -->
+<div id="soft" class="max-w-screen-xl mx-auto p-5 sm:p-10 md:p-16 relative -mt-32">
+  <h1 class="text-2xl font-bold text-black mb-4">Soft Skill</h1>
+  <div class="grid grid-cols-1 sm:grid-cols-12 gap-10">
+      <div class="sm:col-span-6 lg:col-span-5">
+        <a href="#">
+          <div class="h-96 relative text-center overflow-hidden">
+            <iframe src="/img/Snapinsta.app_video_AQPbNxBGe0yF_nNdSiVlo0p6EdJyuDDWlM3cdA9pjpgQowFv0p1BDfvMu9G26nna4ctsthFO0G06KAAiM870Zn6t43NCj0hyX-TOp18.mp4" 
+                    class="w-full h-full absolute top-0 left-0"
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen
+                    muted>
+            </iframe>
+        </div>
+        
+      </a>
+      
+          <div
+              class="mt-3 bg-white rounded-b lg:rounded-b-none lg:rounded-r flex flex-col justify-between leading-normal">
+              <div class="lg:pl-16">
+                  
+                  <a href="#"
+                      class="text-gray-900 font-bold text-lg mb-2 hover:text-indigo-600 transition duration-500 ease-in-out">Public Speaking </a>
+                  <p class="text-gray-700 text-xs mt-2">Public speaking is the process or act of performing a speech to a live audience. This type of speech is deliberately structured with three general purposes: to inform, to persuade and to entertain.</p>
+                  </p>
+              </div>
+          </div>
+      </div>
+
+      <div class="sm:col-span-6 lg:col-span-4">
+        <div class="flex items-start mb-3 pb-3">
+          <a href="#" class="inline-block mr-3">
+              <div class="w-20 h-20 bg-cover bg-center"
+                  style="background-image:url(https://example.com/programming-image1.jpg);">
+              </div>
+          </a>
+          <div class="text-sm">
+              <p class="text-gray-600 text-xs">Jan 20</p>
+              <a href="#" class="text-gray-900 font-medium hover:text-indigo-600 leading-none">Introduction to Python: A Beginner's Guide</a>
+          </div>
+      </div>
+      <div class="flex items-start mb-3 pb-3">
+          <a href="#" class="inline-block mr-3">
+              <div class="w-20 h-20 bg-cover bg-center"
+                  style="background-image:url(https://example.com/programming-image2.jpg);">
+              </div>
+          </a>
+          <div class="text-sm w-2/3">
+              <p class="text-gray-600 text-xs">Feb 10</p>
+              <a href="#" class="text-gray-900 font-medium hover:text-indigo-600 leading-none">Exploring Data Structures: Arrays and Linked Lists</a>
+          </div>
+      </div>
+      <div class="flex items-start mb-3 pb-3">
+          <a href="#" class="inline-block mr-3">
+              <div class="w-20 h-20 bg-cover bg-center"
+                  style="background-image:url(https://example.com/programming-image3.jpg);">
+              </div>
+          </a>
+          <div class="text-sm">
+              <p class="text-gray-600 text-xs">Mar 05</p>
+              <a href="#" class="text-gray-900 font-medium hover:text-indigo-600 leading-none">Understanding Algorithms: Sorting and Searching</a>
+          </div>
+      </div>
+      <div class="flex items-start">
+          <a href="#" class="inline-block mr-3">
+              <div class="w-20 h-20 bg-cover bg-center"
+                  style="background-image:url(https://example.com/programming-image4.jpg);">
+              </div>
+          </a>
+          <div class="text-sm w-2/3">
+              <p class="text-gray-600 text-xs">Apr 15</p>
+              <a href="#" class="text-gray-900 font-medium hover:text-indigo-600 leading-none">Introduction to Web Development: HTML and CSS Basics</a>
+          </div>
+      </div>
+  </div>      
+
+      <div class="sm:col-span-12 lg:col-span-3">
+          <a href="#">
+              <div class="h-56 bg-cover text-center overflow-hidden"
+                  style="background-image: url('/img/Gambar\ WhatsApp\ 2025-01-02\ pukul\ 02.32.21_d0b84997.jpg')"
+                  title="Woman holding a mug">
+              </div>
+          </a>
+          <div
+              class="mt-3 bg-white rounded-b lg:rounded-b-none lg:rounded-r flex flex-col justify-between leading-normal">
+              <div class="">
+                 
+                  <a href="#"
+                      class="text-gray-900 font-bold text-lg mb-2 hover:text-indigo-600 transition duration-500 ease-in-out">
+                      Football </a>
+                  <p class="text-gray-700 text-xs mt-2">olahraga yang dimainkan oleh dua tim yang masing-masing terdiri dari sebelas pemain. Tujuan permainan ini adalah untuk mencetak gol dengan cara memasukkan bola ke dalam gawang lawan, menggunakan kaki atau bagian tubuh lain selain tangan</p>
+              </div>
+          </div>
+      </div>
+
+  </div>
+</div>
+
+<footer class="text-black py-10 ">
+  <div class="max-w-screen-xl mx-auto px-6">
+      <!-- Footer Content -->
+      <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+          <div class="mb-6 md:mb-0">
+              <h2 class="text-2xl font-semibold mb-2">Lets Create a Magic!</h2>
+              <p class="text-sm md:text-base text-gray-600"></p>
+          </div> 
+      </div>
+      <div class="border-t border-gray-300 mt-8 pt-4 text-center">
+          <p class="text-sm text-gray-600">&copy; 2025 Company Name. Muhammad Qinthar.</p>
+      </div>
+  </div>
+</footer>
+
+
+
+
+
+
+  <script>
+
+    // Get elements
+const toggleButton = document.getElementById('toggle-notifications');
+const popup = document.getElementById('popup');
+const closeButton = document.getElementById('close-popup');
+
+// Show pop-up on button click
+toggleButton.addEventListener('click', () => {
+    popup.classList.remove('hidden');
+});
+
+// Close pop-up on 'X' click
+closeButton.addEventListener('click', () => {
+    popup.classList.add('hidden');
+});
+
+    document.getElementById('toggle-notifications').addEventListener('click', function() {
+      const panel = document.getElementById('notification-panel');
+      const indicator = document.getElementById('notification-indicator');
+      if (panel.style.display === 'none') {
+        panel.style.display = 'block';
+        indicator.style.display = 'none';
+      } else {
+        panel.style.display = 'none';
+      }
+    });
+
+        // Ambil elemen tombol dan modal
+    const toggleKeranjangButton = document.getElementById('toggleKeranjang');
+    const keranjangModal = document.getElementById('keranjang');
+    const closeKeranjangButton = document.getElementById('closeKeranjang');
+
+    // Fungsi untuk menampilkan modal keranjang
+    toggleKeranjangButton.addEventListener('click', (event) => {
+      event.preventDefault();  // Mencegah peramban berpindah ke link
+      keranjangModal.classList.remove('hidden'); // Tampilkan modal
+      window.location.hash = "keranjang"; // Gulirkan halaman ke elemen #keranjang
+    });
+
+    // Fungsi untuk menutup modal keranjang
+    closeKeranjangButton.addEventListener('click', () => {
+      keranjangModal.classList.add('hidden'); // Sembunyikan modal
+    });
+
+     // Handle panel open and close
+     document.getElementById('openPembayaran').addEventListener('click', function () {
+      document.getElementById('pembayaran').classList.remove('hidden');
+    });
+
+    document.getElementById('closePembayaran').addEventListener('click', function () {
+      document.getElementById('pembayaran').classList.add('hidden');
+    });
+
+
+    // Open pembayaran panel when clicking "Checkout" button
+    document.getElementById('checkoutButton').addEventListener('click', function (event) {
+      event.preventDefault(); // Prevent default link behavior
+      document.getElementById('pembayaran').classList.remove('hidden');
+    });
+
+    // Close pembayaran panel
+    document.getElementById('closePembayaran').addEventListener('click', function () {
+      document.getElementById('pembayaran').classList.add('hidden');
+    });
+  </script>
+</body>
+</html>
